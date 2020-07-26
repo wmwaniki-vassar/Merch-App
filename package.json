@@ -1,0 +1,20 @@
+{
+  "name": "handcrafts-project",
+  "version": "1.0.0",
+  "description": "Handcrafts project for VHP",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build client/index.html --no-minify --no-cache --no-source-maps && node util.js && clasp push",
+    "watch": " nodemon --watch client --watch server --exec \"npm run build\" --ext js,html,scss,css"
+  },
+  "author": "Walter",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^1.12.4",
+    "parcel-plugin-inliner": "^1.0.14",
+    "posthtml": "^0.13.1"
+  },
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}

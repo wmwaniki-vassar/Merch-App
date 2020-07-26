@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>.shamrock {
+    color: #0F9D58;
+}
+
+.nav-extended {
+    padding-top: 30px;
+}
+
+.rounded {
+    border-radius: 1rem;
+}
+
+#edit-modal {
+    width: 100%;
+    max-height: 100%;
+    height: 100%;
+    top: 0 !important;
+}
+.material-icons:hover {
+    color: #0F9D58;
+}
+
+.button {
+    background-color: rgb(233, 229, 229);
+    border-width: 0;
+    border-radius: 2em;
+}
+
+.button:hover {
+    background-color: #ccc;
+    cursor: pointer;
+}
+
+.btn-large {
+   width: 100%;
+}
+
+.italics{
+   font-style: italic;
+}
+
+/* footer */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.footer-container {
+    padding: 15px 2%;
+}
+</style>
+        <title>❤ Handcrafts ❤</title>
+    </head>
+
+
+    <body>
+
+        <header>
+            <nav class="nav-extended blue-grey darken-1 rounded">
+                <div class="nav-content">
+                    <ul class="tabs tabs-transparent">
+                        <li class="tab"><a href="#homeTab">Home</a></li>
+                        <li class="tab"><a class="active" href="#searchTab">Search</a></li>
+                        <li class="tab"><a href="#addTab">Add New</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+
+            <!-- HOME PAGE -->
+            <section id="homeTab">
+                <h1>Home</h1>
+                <div class="row">
+                    <div class="col s3"><a class="" href="#!">Google Drive</a></div>
+                    <div class="col s3"><a class="" href="#!">Squarespace</a></div>
+                    <div class="col s3"><a class="" href="#!">Paintings list</a></div>
+                    <div class="col s3"><a class="" href="#!">Merch Manual</a></div>
+                </div>
+            </section>
+
+            <!-- SEARCH PAGE -->
+            <section id="searchTab" style="padding-top: 20px;">
+
+                <nav class="blue-grey darken-1 rounded container">
+                    <div class="nav-wrapper">
+                        <form>
+                            <div class="input-field">
+                                <input id="searchInput" type="search" class="search" placeholder="search handcrafts ..." required="">
+                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                            </div>
+                        </form>
+                    </div>
+                </nav>
+
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab"><a class="active" href="#items-collapsible">
+                                    <i class="material-icons">view_headline</i></a></li>
+                            <li class="tab"><a href="#items-cards">
+                                    <i class="material-icons">view_module</i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="collapsible row" id="items-collapsible"></ul>
+                <template id="collapsible-template">
+
+                    <li class="col s12 m6">
+
+                        <table>
+                            <tbody>
+                                <tr class="collapsible-header">
+
+                                    <td id="item-slf">PM-1</td>
+                                    <td id="item-name">Ant</td>
+                                    <td class="italics"> (<span id="item-creole">Petit Cocinelle</span>) </td>
+                                    <td><span id="item-stock">0</span> items available.</td>
+                                    <td id="item-retail" class="shamrock">$10</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="collapsible-body row grey lighten-3">
+
+                            <div class="row">
+
+                                <div class="col s12 m7">
+                                    <img class="responsive-img" id="item-image" src="https://picsum.photos/450/300">
+                                </div>
+
+                                <div class="col s12 m5">
+
+                                    <div class="row">
+
+                                        <div id="item-material" class="col s12">Paper Mache</div>
+
+                                        <div class="col s6 italics">Company: <span id="item-company">C.</span>
+
+                                        </div>
+
+                                        <div class="col s6 italics">Style #: <span id="item-style">45</span></div>
+
+                                    </div>
+
+                                    <div class="row">
+
+                                        <div class="col s12">
+                                            <span class="italics">Description</span><br>
+                                            <span id="item-description">Small paper Mache ant</span><br>
+                                        </div>
+
+                                        <div class="col s12">
+                                            <span class="italics">Tags: </span><br>
+                                            <span id="item-tags">small ant red insect</span>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col s12">
+                                    <span class="italics">Notes: </span><br>
+                                    <span id="item-notes">Received by Jerina</span>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <i class="col s3 button material-icons center edit-button modal-trigger" type="button" data-target="edit-modal" data-slf="PM-1">edit</i>
+
+                                <i class="col s3 button material-icons center recieve-button" type="button" data-slf="PM-1">add</i>
+
+                                <i class="col s3 button material-icons center sale-button" type="button" data-slf="PM-1">remove</i>
+
+                                <i class="col s3 button material-icons center inventoryCheck-button" type="button" data-slf="PM-1">tune</i>
+
+                            </div>
+
+                        </div>
+
+                    </li>
+                </template>
+
+                <div id="items-cards" class="row"></div>
+                <template id="cards-template">
+                    
+                    <div class="col s12 m4 l4">
+                        <div class="card medium grey lighten-4">
+
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img id="item-image" class="activator responsive-img" src="https://drive.google.com/uc?export=view&amp;id=1phjvZLB_Kqtvl_Oxek4V7P8cqSvvQX-M">
+                            </div>
+
+                            <div class="card-content">
+
+                                <div class="row">
+
+                                    <div class="col s12">
+                                        <p id="item-name" class="card-title activator grey-text text-darken-4">Ant</p>
+                                    </div>
+
+                                    <div id="item-slf" class="col s6">PM-1</div>
+
+                                    <div class="col s8">
+                                        <span id="item-stock" style="color:coral">0</span> items available
+                                    </div>
+
+                                    <div class="col s4">
+                                        <span id="item-retail" class="card-title activator shamrock">$10</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="card-reveal">
+
+                                <span id="item-name2" class="card-title grey-text text-darken-4">Ant<i class="material-icons right">close</i></span>
+
+                                <i id="item-creole">(Petit Cocinelle)</i>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div id="item-material" class="col s6">Paper Mache</div>
+                                    <div class="col s6">Company: <span id="item-company">C.</span></div>
+                                    <div class="col s6">Style #: <span id="item-style">45</span></div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s12">
+                                        <span class="italics">Description</span><br>
+                                        <span id="item-description">Small paper Mache ant</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s12">
+                                        <span class="italics">Tags</span><br>
+                                        <span class="chip" id="item-tags">small ant red insect</span>
+                                    </div>
+                                </div>
+
+                                <p><span class="italics">Notes:</span><span id="item-notes">Received by Jerina</span>
+                                </p>
+
+                                <div class="row card-actions">
+
+                                    <i class="col s3 button material-icons center edit-button modal-trigger" type="button" data-target="edit-modal" data-slf="PM-1">edit</i>
+                                    <i class="col s3 button material-icons center recieve-button" type="button" data-slf="PM-1">add</i>
+                                    <i class="col s3 button material-icons center sale-button" type="button" data-slf="PM-1">remove</i>
+                                    <i class="col s3 button material-icons center inventoryCheck-button" type="button" data-slf="PM-1">tune</i>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </template>
+
+                <div id="edit-modal" class="modal">
+                    <div class="modal-content row">
+
+                        <!-- <div class="col s12"></div> -->
+                        <div class="col s12">
+                            <h4 class="center"> Edit an Item <i class="material-icons left modal-close">arrow_back</i>
+                            </h4>
+                        </div>
+                        <form class="row">
+
+                            <div class="row col s12 m5 push-m7" style="padding-top:10px">
+                                <div class="material-placeholder">
+                                    <img id="edit-img" class="responsive-img materialboxed" src="https://picsum.photos/450/300">
+                                </div>
+                            </div>
+
+                            <div class="col s12 m7 pull-m5">
+                                <div class="row">
+
+                                    <div class="input-field col s6">
+                                        <input readonly="" placeholder="slf" id="edit-slf" type="text" class="validate">
+                                        <label for="slf" class="active">SLF</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input readonly="" placeholder="material" id="edit-material" type="text" class="validate">
+                                        <label for="edit-material" class="active">Material</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input placeholder="company" id="edit-company" type="text" class="validate">
+                                        <label for="edit-company" class="active">Company</label>
+                                    </div>
+
+                                    <div class="input-field col s6">
+                                        <input placeholder="company style#" id="edit-style" type="text" class="validate">
+                                        <label for="edit-style" class="active">Style Number</label>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <input placeholder="item Name" id="edit-name" type="text" class="validate">
+                                        <label for="edit-name" class="active">Item Name</label>
+                                    </div>
+
+                                    <div class="input-field col s12">
+                                        <input placeholder="Creole Name" id="edit-creole" type="text" class="validate">
+                                        <label for="edit-creole" class="active">Creole Name</label>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div class="col s12">
+                                <div class="row">
+
+                                    <div class="input-field col s12 m7">
+                                        <textarea id="edit-description" class="materialize-textarea" style="height: 35px;"></textarea>
+                                        <label for="edit-description">Description</label>
+                                    </div>
+
+                                    <div class="chips col s10 push-s1 m4 input-field">
+                                        <input id="edit-tags" class="custom-class input" placeholder="tags">
+                                    </div>
+
+                                    <div class="input-field col s12 m7">
+                                        <textarea id="edit-notes" class="materialize-textarea" style="height: 46px;"></textarea>
+                                        <label for="edit-notes">Notes</label>
+                                    </div>
+
+                                    <div class="modal-footer col s12 m5">
+                                        <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit
+                                            <i class="material-icons right">check</i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+
+                        </form>
+                    </div>
+
+            </div></section>
+
+            <!-- ADD PAGE -->
+            <section id="addTab">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12">
+                            <h2>ADD NEW</h2>
+                        </div>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <input placeholder="Placeholder" id="name" type="text" class="validate">
+                                    <label for="name">Item Name</label>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <input placeholder="Placeholder" id="creole" type="text" class="validate">
+                                    <label for="creole">Creole Name</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <input placeholder="company name..." id="company" type="text" class="validate">
+                                    <label for="company">Company</label>
+                                </div>
+                                <div class="input-field col s6 m3 l3">
+                                    <input placeholder="company style number..." id="style" type="text" class="validate">
+                                    <label for="style">Style Number</label>
+                                </div>
+                                <div class="input-field col s6 m3 l3">
+                                    <select>
+                                        <option value="" disabled="" selected=""></option>
+                                        <option value="1">Paper Mache</option>
+                                        <option value="2">Wood</option>
+                                        <option value="3">Horn</option>
+                                        <option value="4">Metal painted</option>
+                                        <option value="5">Metal Unpainted</option>
+                                    </select>
+                                    <label>Material</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <textarea id="description" class="materialize-textarea"></textarea>
+                                    <label for="description">Description</label>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <textarea id="notes" class="materialize-textarea"></textarea>
+                                    <label for="notes">Notes</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="chips col s12 m6">
+                                    <input class="custom-class" placeholder="tags">
+                                </div>
+                                <div class="file-field input-field col s12 offset-m3 m3">
+                                    <div class="btn">
+                                        <span>Image</span>
+                                        <input type="file">
+                                    </div>
+                                    <div class="file-path-wrapper">
+                                        <input class="file-path validate" type="text" placeholder="Upload image">
+                                    </div>
+                                </div>
+                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                    <i class="material-icons right">check</i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="blue-grey darken-1 rounded card">
+            <div class="center white-text">Made with ♥ VHP</div>
+        </footer>
+
+        <!-- materialize css js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <!-- jquery  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <!-- custom js -->
+        <script>// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+parcelRequire = (function (modules, cache, entry, globalName) {
+  // Save the require from previous bundle to this closure if any
+  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
+  var nodeRequire = typeof require === 'function' && require;
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error('Cannot find module \'' + name + '\'');
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = cache[name] = new newRequire.Module(name);
+
+      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x){
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x){
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
+
+  var error;
+  for (var i = 0; i < entry.length; i++) {
+    try {
+      newRequire(entry[i]);
+    } catch (e) {
+      // Save first error but execute all entries
+      if (!error) {
+        error = e;
+      }
+    }
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = mainExports;
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+     define(function () {
+       return mainExports;
+     });
+
+    // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+
+  // Override the current require with this new one
+  parcelRequire = newRequire;
+
+  if (error) {
+    // throw error from earlier, _after updating parcelRequire_
+    throw error;
+  }
+
+  return newRequire;
+})({"d6sW":[function(require,module,exports) {
+//load data when page loads
+document.addEventListener('DOMContentLoaded', setDataForSearch); //Search Functionality
+
+document.getElementById("searchInput").addEventListener("input", search);
+var collapsibleList = $('#items-collapsible')[0];
+var cardsList = $('#items-cards')[0];
+
+function addItemsToSearch(data) {
+  data.forEach(function (handcraft) {
+    var template = $('#collapsible-template')[0].content.cloneNode("true");
+    template.querySelector("#item-slf").textContent = handcraft.slf;
+    template.querySelector("#item-name").textContent = handcraft.name;
+    template.querySelector("#item-stock").textContent = handcraft.stock;
+    template.querySelector("#item-creole").textContent = handcraft.creole;
+    template.querySelector("#item-material").textContent = handcraft.material;
+    template.querySelector("#item-description").textContent = handcraft.description;
+    template.querySelector("#item-tags").textContent = handcraft.tags;
+    template.querySelector("#item-company").textContent = handcraft.company;
+    template.querySelector("#item-style").textContent = handcraft.style;
+    template.querySelector("#item-notes").textContent = handcraft.notes;
+    template.querySelector("#item-retail").textContent = "$" + handcraft.retail;
+    var imageSource = "https://drive.google.com/uc?export=view&id=" + handcraft.imageId;
+    template.querySelector("#item-image").src = imageSource;
+    template.querySelector(".edit-button").dataset.slf = handcraft.slf;
+    template.querySelector(".recieve-button").dataset.slf = handcraft.slf;
+    template.querySelector(".sale-button").dataset.slf = handcraft.slf;
+    template.querySelector(".inventoryCheck-button").dataset.slf = handcraft.slf;
+    collapsibleList.appendChild(template);
+  });
+  data.forEach(function (handcraft) {
+    var template = $('#cards-template')[0].content.cloneNode("true");
+    template.querySelector("#item-slf").textContent = handcraft.slf;
+    template.querySelector("#item-retail").textContent = "$" + handcraft.retail;
+    template.querySelector("#item-name").textContent = handcraft.name;
+    template.querySelector("#item-name2").innerHTML = handcraft.name + '<i class="material-icons right">close</i>';
+    template.querySelector("#item-stock").textContent = handcraft.stock;
+    template.querySelector("#item-creole").textContent = "(" + handcraft.creole + ")";
+    template.querySelector("#item-material").textContent = handcraft.material;
+    template.querySelector("#item-description").textContent = handcraft.description;
+    template.querySelector("#item-tags").textContent = handcraft.tags;
+    template.querySelector("#item-company").textContent = handcraft.company;
+    template.querySelector("#item-style").textContent = handcraft.style;
+    template.querySelector("#item-notes").textContent = handcraft.notes;
+    var imageSource = "https://drive.google.com/uc?export=view&id=" + handcraft.imageId;
+    template.querySelector("#item-image").src = imageSource;
+    template.querySelector(".edit-button").dataset.slf = handcraft.slf;
+    template.querySelector(".recieve-button").dataset.slf = handcraft.slf;
+    template.querySelector(".sale-button").dataset.slf = handcraft.slf;
+    template.querySelector(".inventoryCheck-button").dataset.slf = handcraft.slf;
+    cardsList.appendChild(template);
+  });
+}
+
+var data;
+
+function setDataForSearch() {
+  google.script.run.withSuccessHandler(function (dataReturned) {
+    data = dataReturned.slice();
+    addItemsToSearch(data);
+  }).getHandcrafts();
+}
+
+;
+
+function search() {
+  var searchInput = document.getElementById("searchInput").value.toString().toLowerCase().trim();
+  var searchWords = searchInput.split(/\s+/); // let  = ;
+
+  var resultsArray = data.filter(function (r) {
+    return searchWords.every(function (word) {
+      var searchProperties = [r.slf, r.name, r.tags, r.description];
+      return searchProperties.some(function (property) {
+        return property.toString().toLowerCase().indexOf(word) !== -1;
+      });
+    });
+  });
+  collapsibleList.textContent = "";
+  cardsList.textContent = "";
+  addItemsToSearch(resultsArray);
+} //Edit functionality
+
+
+document.getElementById("searchTab").addEventListener("click", clickEventHandler);
+
+function clickEventHandler(e) {
+  if (e.target.matches(".edit-button")) {
+    var slf = e.target.dataset.slf;
+    document.getElementById("edit-slf").value = slf;
+    google.script.run.withSuccessHandler(function (editHandcraft) {
+      $("#edit-material")[0].value = editHandcraft.material;
+      $("#edit-company")[0].value = editHandcraft.company;
+      $("#edit-style")[0].value = editHandcraft.style;
+      $("#edit-name")[0].value = editHandcraft.name;
+      $("#edit-creole")[0].value = editHandcraft.creole;
+      $("#edit-description")[0].value = editHandcraft.description;
+      $("#edit-tags")[0].value = editHandcraft.tags;
+      $("#edit-notes")[0].value = editHandcraft.notes;
+      M.updateTextFields();
+    }).getHandcraftBySlf(slf);
+  }
+}
+},{}]},{},["d6sW"], null)</script>
+        <!-- materialize auto initialize js ccomponents -->
+        <script>M.AutoInit();</script>
+    </body>
+
+</html>

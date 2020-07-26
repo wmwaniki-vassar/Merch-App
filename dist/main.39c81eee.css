@@ -1,0 +1,30 @@
+.shamrock {
+    color: #0F9D58;
+}
+
+.nav-extended {
+    padding-top: 30px;
+}
+
+.rounded {
+    border-radius: 1rem;
+}
+
+.material-icons:hover {
+    color: #0F9D58;
+}
+
+/* footer */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+.footer-container {
+    padding: 15px 2%;
+}
