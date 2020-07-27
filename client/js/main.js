@@ -47,6 +47,7 @@ function addItemsToSearch(data) {
         template.querySelector("#item-company").textContent = handcraft.company;
         template.querySelector("#item-style").textContent = handcraft.style;
         template.querySelector("#item-notes").textContent = handcraft.notes;
+
         let imageSource = "https://drive.google.com/uc?export=view&id=" + handcraft.imageId;
         template.querySelector("#item-image").src = imageSource;
 
@@ -88,20 +89,83 @@ function search() {
 //Edit functionality
 document.getElementById("searchTab").addEventListener("click", clickEventHandler);
 
+
+let editChip;
+
+function editHandcraft() {
+
+    let slf = $("#edit-slf")[0].value;
+
+    let editedHandcraft = {};
+    editedHandcraft.name = $("#edit-name")[0].value;
+    editedHandcraft.creole = $("#edit-creole")[0].value;
+    editedHandcraft.material = $("#edit-material")[0].value;
+    editedHandcraft.description = $("#edit-description")[0].value;
+    editedHandcraft.company = $("#edit-company")[0].value;
+    editedHandcraft.style = $("#edit-style")[0].value;
+    editedHandcraft.notes = $("#edit-notes")[0].value;
+    editedHandcraft.retail = $("#edit-retail")[0].value;
+
+    //handle tags
+    let chipsData = editChip.chipsData.map(c => { return c.tag });
+    editedHandcraft.tags = chipsData.join(",");
+
+    google.script.run.withSuccessHandler(res => {
+
+    }).editHandcraftBySlf(slf, editedHandcraft);
+}
+
+
+
 function clickEventHandler(e) {
     if (e.target.matches(".edit-button")) {
         let slf = e.target.dataset.slf;
         document.getElementById("edit-slf").value = slf;
-        google.script.run.withSuccessHandler( editHandcraft => {
+        google.script.run.withSuccessHandler(editHandcraft => {
             $("#edit-material")[0].value = editHandcraft.material;
             $("#edit-company")[0].value = editHandcraft.company;
             $("#edit-style")[0].value = editHandcraft.style;
             $("#edit-name")[0].value = editHandcraft.name;
             $("#edit-creole")[0].value = editHandcraft.creole;
+            $("#edit-retail")[0].value = "$" + editHandcraft.retail;
             $("#edit-description")[0].value = editHandcraft.description;
-            $("#edit-tags")[0].value = editHandcraft.tags;
             $("#edit-notes")[0].value = editHandcraft.notes;
+            console.log(editHandcraft.tags);
+            //handle tags 
+            if (editHandcraft.tags == "") {
+                tagsArray = ["tags"];
+            } else {
+                tagsArray = editHandcraft.tags.split(',');
+            }
+
+            let tagData = [];
+            tagsArray.forEach(tag => {
+                let tagObj = {
+                    tag: tag
+                }
+                tagData.push(tagObj);
+            });
+            
+            var chipEl = document.getElementById('edit-tags');
+            editChip = M.Chips.init(chipEl, {
+                data: tagData
+            });
+
+            console.log(editChip.chipsData);
+
             M.updateTextFields();
+
+            //handle image
+            if (document.documentElement.clientWidth < 500) {
+                document.getElementById("edit-image").classList.add("responsive-img");
+            }
+            let imageSource = "https://drive.google.com/uc?export=view&id=" + editHandcraft.imageId;
+            $("#edit-image").attr("src", imageSource);
+
         }).getHandcraftBySlf(slf);
+    }
+
+    if (e.target.matches("#save-changes")) {
+        editHandcraft();
     }
 }

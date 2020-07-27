@@ -48,12 +48,12 @@
     font-style: italic;
 }
 
-/* @media (min-width: 400px) {
+@media only screen and (min-width: 600px) {
     #edit-image {
-        width: 400 !important;
+        width: 400;
         height: 300 !important;
     }
-} */
+}
 
 /* footer */
 

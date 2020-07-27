@@ -38,14 +38,41 @@ function getHandcraftBySlf(slf) {
     const posIndex = custIds.indexOf(slf.toString().toLowerCase());
     const rowNumber = posIndex === -1 ? 0 : posIndex + 2;
     const columnHeaders = ws.getRange(1, 1, 1, ws.getLastColumn()).getValues()[0];
-    const editValues = ws.getRange(rowNumber, 1, 1, ws.getLastColumn()).getValues()[0];
-    let editHandcraft = {};
+    const values = ws.getRange(rowNumber, 1, 1, ws.getLastColumn()).getValues()[0];
+    let handcraft = {};
 
-    editValues.forEach((cellVal, i) => {
-        editHandcraft[columnHeaders[i]] = cellVal;
+    values.forEach((cellVal, i) => {
+        handcraft[columnHeaders[i]] = cellVal;
     });
-    return editHandcraft;
+    images = getImages();
+    for (let i = 0; i < images.length; i++) {
+        if (images[i].slf.toUpperCase() === handcraft.slf) {
+            handcraft.imageId = images[i].id;
+        }
+    }
+    return handcraft;
 }
+
+
+function editHandcraftBySlf(slf, editedHandcraft) {
+    const custIds = ws.getRange(2, 1, lastRow - 1, 1).getValues().map(r => r[0].toString().toLowerCase());
+    const posIndex = custIds.indexOf(slf.toString().toLowerCase());
+    const rowNumber = posIndex === -1 ? 0 : posIndex + 2;
+    ws.getRange(rowNumber, 2, 1, 9).setValues([[
+        editedHandcraft.name,
+        editedHandcraft.creole,
+        editedHandcraft.material,
+        editedHandcraft.description,
+        editedHandcraft.tags,
+        editedHandcraft.company,
+        editedHandcraft.style,
+        editedHandcraft.notes,
+        editedHandcraft.retail
+    ]]);
+    return true;
+}
+
+
 
 function test() {
     getHandcraftBySlf("PM-2");

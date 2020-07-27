@@ -10,6 +10,14 @@
     color: #0F9D58;
 }
 
+.shamrock-bg {
+    background-color: #0F9D58;
+}
+
+.coral-bg {
+    background-color: coral;
+}
+
 .nav-extended {
     padding-top: 30px;
 }
@@ -24,6 +32,7 @@
     height: 100%;
     top: 0 !important;
 }
+
 .material-icons:hover {
     color: #0F9D58;
 }
@@ -40,14 +49,22 @@
 }
 
 .btn-large {
-   width: 100%;
+    width: 100%;
 }
 
-.italics{
-   font-style: italic;
+.italics {
+    font-style: italic;
 }
+
+/* @media (min-width: 400px) {
+    #edit-image {
+        width: 400 !important;
+        height: 300 !important;
+    }
+} */
 
 /* footer */
+
 body {
     display: flex;
     min-height: 100vh;
@@ -60,8 +77,7 @@ main {
 
 .footer-container {
     padding: 15px 2%;
-}
-</style>
+}</style>
         <title>❤ Handcrafts ❤</title>
     </head>
 
@@ -285,11 +301,11 @@ main {
                             <h4 class="center"> Edit an Item <i class="material-icons left modal-close">arrow_back</i>
                             </h4>
                         </div>
-                        <form class="row">
+                        <div class="row"><!--  form -->
 
                             <div class="row col s12 m5 push-m7" style="padding-top:10px">
                                 <div class="material-placeholder">
-                                    <img id="edit-img" class="responsive-img materialboxed" src="https://picsum.photos/450/300">
+                                    <img id="edit-image" width="400" height="300" class="materialboxed" src="https://images.squarespace-cdn.com/content/v1/54e66b67e4b09706d49aee00/1511553574964-CH3EML92ZTOGDM7HU70Z/ke17ZwdGBToddI8pDm48kPZPAWXt-oN4iqUZ0D9L0UV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmSBbXEDD4VSardKCHRQw8udukTBTWBshYMc2ee8ieTSDdLgz5ICxn5Ztv-dp_N6w6/colorlvhplogoblackbase+-+original.png">
                                 </div>
                             </div>
 
@@ -321,9 +337,14 @@ main {
                                         <label for="edit-name" class="active">Item Name</label>
                                     </div>
 
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s10">
                                         <input placeholder="Creole Name" id="edit-creole" type="text" class="validate">
                                         <label for="edit-creole" class="active">Creole Name</label>
+                                    </div>
+
+                                    <div class="input-field col s2">
+                                        <input placeholder="Retail Price" id="edit-retail" type="text" class="validate">
+                                        <label for="edit-retail" class="active">Retail</label>
                                     </div>
 
                                 </div>
@@ -337,8 +358,8 @@ main {
                                         <label for="edit-description">Description</label>
                                     </div>
 
-                                    <div class="chips col s10 push-s1 m4 input-field">
-                                        <input id="edit-tags" class="custom-class input" placeholder="tags">
+                                    <div class="col s12 m5 input-field">
+                                        <div id="edit-tags" class="chips"></div>
                                     </div>
 
                                     <div class="input-field col s12 m7">
@@ -347,17 +368,22 @@ main {
                                     </div>
 
                                     <div class="modal-footer col s12 m5">
-                                        <button class="btn btn-large waves-effect waves-light" type="submit" name="action">Submit
+                                        <div class="col s3">
+                                        <button id="cancel-changes" class="btn btn-large rounded coral-bg modal-close waves-effect waves-light" type="submit" name="action">
+                                            <i class="material-icons small">cancel</i>
+                                        </button>
+                                    </div>
+                                    <div class="col s9">
+                                        <button id="save-changes" class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light" type="" name="action">Submit
                                             <i class="material-icons right">check</i>
                                         </button>
+                                    </div>
                                     </div>
 
                                 </div>
                             </div>
 
-
-
-                        </form>
+                        </div><!--  form -->
                     </div>
 
             </div></section>
@@ -647,6 +673,26 @@ function search() {
 
 
 document.getElementById("searchTab").addEventListener("click", clickEventHandler);
+var editChip;
+
+function editHandcraft() {
+  var slf = $("#edit-slf")[0].value;
+  var editedHandcraft = {};
+  editedHandcraft.name = $("#edit-name")[0].value;
+  editedHandcraft.creole = $("#edit-creole")[0].value;
+  editedHandcraft.material = $("#edit-material")[0].value;
+  editedHandcraft.description = $("#edit-description")[0].value;
+  editedHandcraft.company = $("#edit-company")[0].value;
+  editedHandcraft.style = $("#edit-style")[0].value;
+  editedHandcraft.notes = $("#edit-notes")[0].value;
+  editedHandcraft.retail = $("#edit-retail")[0].value; //handle tags
+
+  var chipsData = editChip.chipsData.map(function (c) {
+    return c.tag;
+  });
+  editedHandcraft.tags = chipsData.join(",");
+  google.script.run.withSuccessHandler(function (res) {}).editHandcraftBySlf(slf, editedHandcraft);
+}
 
 function clickEventHandler(e) {
   if (e.target.matches(".edit-button")) {
@@ -658,11 +704,42 @@ function clickEventHandler(e) {
       $("#edit-style")[0].value = editHandcraft.style;
       $("#edit-name")[0].value = editHandcraft.name;
       $("#edit-creole")[0].value = editHandcraft.creole;
+      $("#edit-retail")[0].value = "$" + editHandcraft.retail;
       $("#edit-description")[0].value = editHandcraft.description;
-      $("#edit-tags")[0].value = editHandcraft.tags;
       $("#edit-notes")[0].value = editHandcraft.notes;
-      M.updateTextFields();
+      console.log(editHandcraft.tags); //handle tags 
+
+      if (editHandcraft.tags == "") {
+        tagsArray = ["tags"];
+      } else {
+        tagsArray = editHandcraft.tags.split(',');
+      }
+
+      var tagData = [];
+      tagsArray.forEach(function (tag) {
+        var tagObj = {
+          tag: tag
+        };
+        tagData.push(tagObj);
+      });
+      var chipEl = document.getElementById('edit-tags');
+      editChip = M.Chips.init(chipEl, {
+        data: tagData
+      });
+      console.log(editChip.chipsData);
+      M.updateTextFields(); //handle image
+
+      if (document.documentElement.clientWidth < 500) {
+        document.getElementById("edit-image").classList.add("responsive-img");
+      }
+
+      var imageSource = "https://drive.google.com/uc?export=view&id=" + editHandcraft.imageId;
+      $("#edit-image").attr("src", imageSource);
     }).getHandcraftBySlf(slf);
+  }
+
+  if (e.target.matches("#save-changes")) {
+    editHandcraft();
   }
 }
 },{}]},{},["d6sW"], null)</script>
