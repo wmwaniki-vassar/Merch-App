@@ -67,7 +67,7 @@
                 <ul class="collapsible row" id="items-collapsible"></ul>
                 <template id="collapsible-template">
 
-                    <li class="col s12 m6">
+                    <li class="col s12 m12 l6">
 
                         <table>
                             <tbody>
@@ -88,7 +88,8 @@
                             <div class="row">
 
                                 <div class="col s12 m7">
-                                    <img class="responsive-img" id="item-image" src="https://picsum.photos/450/300">
+                                    <img class="responsive-img" width="400" height="300" class="materialboxed"
+                                        id="item-image">
                                 </div>
 
                                 <div class="col s12 m5">
@@ -151,9 +152,9 @@
 
                 <div id="items-cards" class="row"></div>
                 <template id="cards-template">
-                    
+
                     <div class="col s12 m4 l4">
-                        <div class="card medium grey lighten-4">
+                        <div class="card hoverable medium grey lighten-4">
 
                             <div class="card-image waves-effect waves-block waves-light">
                                 <img id="item-image" class="activator responsive-img"
@@ -222,8 +223,8 @@
                                         data-slf="PM-1">add</i>
                                     <i class="col s3 button material-icons center sale-button" type="button"
                                         data-slf="PM-1">remove</i>
-                                    <i class="col s3 button material-icons center inventoryCheck-button" type="button"
-                                        data-slf="PM-1">tune</i>
+                                    <i class="col s3 button material-icons center inventoryCheck-button modal-trigger"
+                                        type="button" data-target="image-modal" data-slf="PM-1">tune</i>
 
                                 </div>
 
@@ -236,12 +237,12 @@
                 <div id="edit-modal" class="modal">
                     <div class="modal-content row">
 
-                        <!-- <div class="col s12"></div> -->
                         <div class="col s12">
                             <h4 class="center"> Edit an Item <i class="material-icons left modal-close">arrow_back</i>
                             </h4>
                         </div>
-                        <div class="row"><!--  form -->
+                        <div class="row">
+                            <!--  form -->
 
                             <div class="row col s12 m5 push-m7" style="padding-top:10px">
                                 <div class="material-placeholder">
@@ -302,9 +303,17 @@
                                         <label for="edit-description">Description</label>
                                     </div>
 
-                                    <div class="col s12 m5 input-field">
-                                        <div id="edit-tags" class="chips"></div>
+                                    <div class="file-field input-field col s12 m4">
+                                        <div class="btn rounded">
+                                            <span>File</span>
+                                            <input type="file">
+                                        </div>
+                                        <div class="file-path-wrapper">
+                                            <input id="edit-file" class="file-path validate" type="text">
+                                        </div>
                                     </div>
+
+                                    <div id="upload-edit-file" class="btn rounded col s11 m1"><span>Upload</span> </div>
 
                                     <div class="input-field col s12 m7">
                                         <textarea id="edit-notes" class="materialize-textarea"
@@ -312,19 +321,25 @@
                                         <label for="edit-notes">Notes</label>
                                     </div>
 
-                                    <div class="modal-footer col s12 m5">
+                                    <div class="col s12 m5 input-field">
+                                        <div id="edit-tags" class="chips"></div>
+                                    </div>
+
+                                    <div class="modal-footer row">
                                         <div class="col s3">
-                                        <button id="cancel-changes" class="btn btn-large rounded coral-bg modal-close waves-effect waves-light" type="submit"
-                                            name="action">
-                                            <i class="material-icons small">cancel</i>
-                                        </button>
-                                    </div>
-                                    <div class="col s9">
-                                        <button id="save-changes" class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light" type=""
-                                            name="action">Submit
-                                            <i class="material-icons right">check</i>
-                                        </button>
-                                    </div>
+                                            <button id="cancel-changes"
+                                                class="btn btn-large rounded coral-bg modal-close waves-effect waves-light"
+                                                type="submit" name="action">
+                                                <i class="material-icons small">cancel</i>
+                                            </button>
+                                        </div>
+                                        <div class="col s9">
+                                            <button id="save-changes"
+                                                class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light"
+                                                type="" name="action">Submit
+                                                <i class="material-icons right">check</i>
+                                            </button>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -332,6 +347,7 @@
 
                         </div><!--  form -->
                     </div>
+                </div>
 
             </section>
 
@@ -342,29 +358,30 @@
                         <div class="col s12">
                             <h2>ADD NEW</h2>
                         </div>
-                        <form class="col s12">
+                        <div class="col s12">
+                            <!-- <form > -->
                             <div class="row">
                                 <div class="input-field col s12 m6">
-                                    <input placeholder="Placeholder" id="name" type="text" class="validate">
-                                    <label for="name">Item Name</label>
+                                    <input placeholder="Placeholder" id="new-name" type="text" class="validate">
+                                    <label for="new-name">Item Name</label>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <input placeholder="Placeholder" id="creole" type="text" class="validate">
-                                    <label for="creole">Creole Name</label>
+                                    <input placeholder="Placeholder" id="new-creole" type="text" class="validate">
+                                    <label for="new-creole">Creole Name</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input placeholder="company name..." id="company" type="text" class="validate">
-                                    <label for="company">Company</label>
+                                <div class="input-field col s12 m3 l3">
+                                    <input placeholder="company name..." id="new-company" type="text" class="validate">
+                                    <label for="new-company">Company</label>
                                 </div>
                                 <div class="input-field col s6 m3 l3">
-                                    <input placeholder="company style number..." id="style" type="text"
+                                    <input placeholder="company style number..." id="new-style" type="text"
                                         class="validate">
-                                    <label for="style">Style Number</label>
+                                    <label for="new-style">Style Number</label>
                                 </div>
                                 <div class="input-field col s6 m3 l3">
-                                    <select>
+                                    <select id="new-material">
                                         <option value="" disabled selected></option>
                                         <option value="1">Paper Mache</option>
                                         <option value="2">Wood</option>
@@ -374,20 +391,24 @@
                                     </select>
                                     <label>Material</label>
                                 </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <textarea id="description" class="materialize-textarea"></textarea>
-                                    <label for="description">Description</label>
-                                </div>
-                                <div class="input-field col s12 m6">
-                                    <textarea id="notes" class="materialize-textarea"></textarea>
-                                    <label for="notes">Notes</label>
+                                <div class="input-field col s6 m3 l3">
+                                    <input placeholder="retail price" id="new-retail" type="text" class="validate">
+                                    <label for="new-style">Retail Price</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="chips col s12 m6">
-                                    <input class="custom-class" placeholder="tags">
+                                <div class="input-field col s12 m6">
+                                    <textarea id="new-description" class="materialize-textarea"></textarea>
+                                    <label for="new-description">Description</label>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <textarea id="new-notes" class="materialize-textarea"></textarea>
+                                    <label for="new-notes">Notes</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m6 input-field">
+                                    <div id="new-tags" class="chips"></div>
                                 </div>
                                 <div class="file-field input-field col s12 offset-m3 m3">
                                     <div class="btn">
@@ -398,14 +419,39 @@
                                         <input class="file-path validate" type="text" placeholder="Upload image">
                                     </div>
                                 </div>
-                                <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <button id="add-new" class="btn waves-effect waves-light" type="submit"
+                                    name="action">Submit
                                     <i class="material-icons right">check</i>
                                 </button>
                             </div>
-                        </form>
+                        </div><!-- </form> -->
                     </div>
                 </div>
             </section>
+
+            <!-- IMAGE UPLOAD -->
+            <div id="image-modal" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h3>SLF: <span id="image-slf"> Image SLF</span></h3>
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="submit-image"
+                        class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light"
+                        name="action">Submit Image
+                    </button>
+                </div>
+            </div>
 
         </main>
 

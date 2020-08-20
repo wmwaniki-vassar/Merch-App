@@ -89,7 +89,6 @@ function search() {
 //Edit functionality
 document.getElementById("searchTab").addEventListener("click", clickEventHandler);
 
-
 let editChip;
 
 function editHandcraft() {
@@ -115,8 +114,6 @@ function editHandcraft() {
     }).editHandcraftBySlf(slf, editedHandcraft);
 }
 
-
-
 function clickEventHandler(e) {
     if (e.target.matches(".edit-button")) {
         let slf = e.target.dataset.slf;
@@ -130,7 +127,7 @@ function clickEventHandler(e) {
             $("#edit-retail")[0].value = "$" + editHandcraft.retail;
             $("#edit-description")[0].value = editHandcraft.description;
             $("#edit-notes")[0].value = editHandcraft.notes;
-            console.log(editHandcraft.tags);
+
             //handle tags 
             if (editHandcraft.tags == "") {
                 tagsArray = ["tags"];
@@ -145,13 +142,12 @@ function clickEventHandler(e) {
                 }
                 tagData.push(tagObj);
             });
-            
+
             var chipEl = document.getElementById('edit-tags');
             editChip = M.Chips.init(chipEl, {
                 data: tagData
             });
 
-            console.log(editChip.chipsData);
 
             M.updateTextFields();
 
@@ -168,4 +164,41 @@ function clickEventHandler(e) {
     if (e.target.matches("#save-changes")) {
         editHandcraft();
     }
+}
+
+//add new handcraft
+
+document.getElementById("add-new").addEventListener("click", addNew);
+
+function addNew() {
+    let newHandcraft = {};
+    newHandcraft.name = $("#new-name")[0].value;
+    newHandcraft.creole = $("#new-creole")[0].value;
+    // newHandcraft.material = $("#new-material")[0].value;
+    newHandcraft.description = $("#new-description")[0].value;
+    newHandcraft.company = $("#new-company")[0].value;
+    newHandcraft.style = $("#new-style")[0].value;
+    newHandcraft.notes = $("#new-notes")[0].value;
+    newHandcraft.retail = $("#new-retail")[0].value;
+
+    //handle select
+    var selectEl = document.getElementById('new-material');
+    let material = M.FormSelect.init(selectEl);
+
+    newHandcraft.material = material.getSelectedValues();
+
+    //handle tags
+    var chipElement = document.getElementById('new-tags');
+    let newChip = M.Chips.init(chipElement);
+    let chipsData = newChip.chipsData.map(c => { return c.tag });
+    newHandcraft.tags = chipsData.join(",");
+    google.script.run.withSuccessHandler(res => {
+
+    }).addNewHandcraft(newHandcraft);
+
+}
+
+//File Upload
+function saveEditFile(e) {
+
 }

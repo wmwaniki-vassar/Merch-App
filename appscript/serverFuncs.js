@@ -17,7 +17,7 @@ function getLastRowSpecial(range) {
 };
 
  //Select the column we will check for the first blank cell
-    let columnToCheck = ss.getRange("A:B").getValues();
+    let columnToCheck = ss.getRange("B:B").getValues();
 
     // Get the last row based on the data range of a single column.
     let lastRow = getLastRowSpecial(columnToCheck);

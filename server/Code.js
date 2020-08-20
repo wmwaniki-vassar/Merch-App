@@ -14,7 +14,7 @@ function loadMainForm() {
 
 function createMenu_() {
   const ui = SpreadsheetApp.getUi();
-  const menu = ui.createMenu("❤ Merch ❤");
+  const menu = ui.createMenu("❤ Merch");
   menu.addItem("Items", "loadMainForm");
   menu.addToUi();
 }

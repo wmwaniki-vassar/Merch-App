@@ -72,11 +72,33 @@ function editHandcraftBySlf(slf, editedHandcraft) {
     return true;
 }
 
-
+function addNewHandcraft(newhandcraft){
+   ws.getRange(lastRow+1, 2, 1, 9).setValues([[
+    newhandcraft.name,
+    newhandcraft.creole,
+    newhandcraft.material,
+    newhandcraft.description,
+    newhandcraft.tags,
+    newhandcraft.company,
+    newhandcraft.style,
+    newhandcraft.notes,
+    newhandcraft.retail
+]]);
+return true;
+}
 
 function test() {
-    getHandcraftBySlf("PM-2");
-
+    addNewHandcraft({
+       name: "Test",
+       creole: "Gebriel",
+       material: "Molla",
+       description: "Belaineh",
+       tags: "Ababa",
+       company: "G",
+       style: "Ethiopia",
+       notes: "Testing",
+       retail: "$0.99"
+    });
 }
 
 

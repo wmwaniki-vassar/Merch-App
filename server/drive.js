@@ -1,8 +1,11 @@
-function getImages() {
+var folderName = "handcrafts";
 
-    let dApp = DriveApp;
-    let folders = dApp.getFoldersByName("handcrafts");
-    let folder = folders.next();
+let dApp = DriveApp;
+
+function getImages() {
+    // let folders = dApp.getFoldersByName(folderName);
+    let folder = dApp.getFolderById("1ljns0FTlcoEUa_LjrGi15SjvnxswPimQ")
+    // let folder = folders.next();
 
     let imagesIter = folder.getFiles();
 
@@ -18,4 +21,14 @@ function getImages() {
         images.push(handcraftImage);
     }
     return images;
+}
+
+function upload(e) {
+    //upload file to google drive
+
+    var contentType = 'image/jpg';
+
+    var img = e.imageFile.getAs(contentType);
+
+    folder.createFile(img);
 }
