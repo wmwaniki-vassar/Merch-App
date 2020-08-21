@@ -10,9 +10,10 @@
   "author": "Walter",
   "license": "ISC",
   "dependencies": {
+    "inliner": "^1.13.1",
     "parcel": "^1.12.4",
     "parcel-plugin-inliner": "^1.0.14",
-    "posthtml": "^0.13.1"
+    "posthtml": "^0.13.2"
   },
   "devDependencies": {
     "sass": "^1.26.10"
