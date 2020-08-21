@@ -1,433 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="./css/main.css">
-        <title>❤ Handcrafts ❤</title>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>❤ Handcrafts ❤</title>
+</head>
 
 
-    <body>
+<body>
 
-        <header>
-            <nav class="nav-extended blue-grey darken-1 rounded">
-                <div class="nav-content">
-                    <ul class="tabs tabs-transparent">
-                        <li class="tab"><a href="#homeTab">Home</a></li>
-                        <li class="tab"><a class="active" href="#searchTab">Search</a></li>
-                        <li class="tab"><a href="#addTab">Add New</a></li>
-                    </ul>
+    <header>
+        <nav class="nav-extended blue-grey darken-1 rounded">
+            <div class="nav-content">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab"><a href="#homeTab">Home</a></li>
+                    <li class="tab"><a class="active" href="#searchTab">Search</a></li>
+                    <li class="tab"><a href="#addTab">Add New</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HOME PAGE -->
+        <section id="homeTab">
+            <h1>Home</h1>
+            <div class="row">
+                <div class="col s3"><a class="" href="#!">Google Drive</a></div>
+                <div class="col s3"><a class="" href="#!">Squarespace</a></div>
+                <div class="col s3"><a class="" href="#!">Paintings list</a></div>
+                <div class="col s3"><a class="" href="#!">Merch Manual</a></div>
+            </div>
+        </section>
+
+        <!-- SEARCH PAGE -->
+        <section id="searchTab" style="padding-top: 20px;">
+
+            <nav class="blue-grey darken-1 rounded container">
+                <div class="nav-wrapper">
+                    <form>
+                        <div class="input-field">
+                            <input id="searchInput" type="search" class="search" placeholder="search handcrafts ..."
+                                required>
+                            <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                        </div>
+                    </form>
                 </div>
             </nav>
-        </header>
 
-        <main>
-
-            <!-- HOME PAGE -->
-            <section id="homeTab">
-                <h1>Home</h1>
-                <div class="row">
-                    <div class="col s3"><a class="" href="#!">Google Drive</a></div>
-                    <div class="col s3"><a class="" href="#!">Squarespace</a></div>
-                    <div class="col s3"><a class="" href="#!">Paintings list</a></div>
-                    <div class="col s3"><a class="" href="#!">Merch Manual</a></div>
+            <div class="row">
+                <div class="col s12">
+                    <ul class="tabs">
+                        <li class="tab"><a class="active" href="#items-collapsible">
+                                <i class="material-icons">view_headline</i></a></li>
+                        <li class="tab"><a href="#items-cards">
+                                <i class="material-icons">view_module</i></a></li>
+                    </ul>
                 </div>
-            </section>
+            </div>
 
-            <!-- SEARCH PAGE -->
-            <section id="searchTab" style="padding-top: 20px;">
+            <ul class="collapsible row" id="items-collapsible"></ul>
+            <template id="collapsible-template">
 
-                <nav class="blue-grey darken-1 rounded container">
-                    <div class="nav-wrapper">
-                        <form>
-                            <div class="input-field">
-                                <input id="searchInput" type="search" class="search" placeholder="search handcrafts ..."
-                                    required>
-                                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                            </div>
-                        </form>
-                    </div>
-                </nav>
+                <li class="col s12 m12 l6">
 
-                <div class="row">
-                    <div class="col s12">
-                        <ul class="tabs">
-                            <li class="tab"><a class="active" href="#items-collapsible">
-                                    <i class="material-icons">view_headline</i></a></li>
-                            <li class="tab"><a href="#items-cards">
-                                    <i class="material-icons">view_module</i></a></li>
-                        </ul>
-                    </div>
-                </div>
+                    <table>
+                        <tbody>
+                            <tr class="collapsible-header">
 
-                <ul class="collapsible row" id="items-collapsible"></ul>
-                <template id="collapsible-template">
+                                <td id="item-slf">PM-1</td>
+                                <td id="item-name">Ant</td>
+                                <td class="italics"> (<span id="item-creole">Petit Cocinelle</span>) </td>
+                                <td><span id="item-stock">0</span> items available.</td>
+                                <td id="item-retail" class="shamrock">$10</td>
 
-                    <li class="col s12 m12 l6">
+                            </tr>
+                        </tbody>
+                    </table>
 
-                        <table>
-                            <tbody>
-                                <tr class="collapsible-header">
+                    <div class="collapsible-body row grey lighten-3">
 
-                                    <td id="item-slf">PM-1</td>
-                                    <td id="item-name">Ant</td>
-                                    <td class="italics"> (<span id="item-creole">Petit Cocinelle</span>) </td>
-                                    <td><span id="item-stock">0</span> items available.</td>
-                                    <td id="item-retail" class="shamrock">$10</td>
+                        <div class="row">
 
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <div class="collapsible-body row grey lighten-3">
-
-                            <div class="row">
-
-                                <div class="col s12 m7">
-                                    <img class="responsive-img" width="400" height="300" class="materialboxed"
-                                        id="item-image">
-                                </div>
-
-                                <div class="col s12 m5">
-
-                                    <div class="row">
-
-                                        <div id="item-material" class="col s12">Paper Mache</div>
-
-                                        <div class="col s6 italics">Company: <span id="item-company">C.</span>
-
-                                        </div>
-
-                                        <div class="col s6 italics">Style #: <span id="item-style">45</span></div </div>
-
-                                    </div>
-
-                                    <div class="row">
-
-                                        <div class="col s12">
-                                            <span class="italics">Description</span><br>
-                                            <span id="item-description">Small paper Mache ant</span><br>
-                                        </div>
-
-                                        <div class="col s12">
-                                            <span class="italics">Tags: </span><br>
-                                            <span id="item-tags">small ant red insect</span>
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                                <div class="col s12">
-                                    <span class="italics">Notes: </span><br>
-                                    <span id="item-notes">Received by Jerina</span>
-                                </div>
-
+                            <div class="col s12 m7">
+                                <img class="responsive-img" width="400" height="300" class="materialboxed"
+                                    id="item-image">
                             </div>
 
-                            <div class="row">
-
-                                <i class="col s3 button material-icons center edit-button modal-trigger" type="button"
-                                    data-target="edit-modal" data-slf="PM-1">edit</i>
-
-                                <i class="col s3 button material-icons center recieve-button" type="button"
-                                    data-slf="PM-1">add</i>
-
-                                <i class="col s3 button material-icons center sale-button" type="button"
-                                    data-slf="PM-1">remove</i>
-
-                                <i class="col s3 button material-icons center inventoryCheck-button" type="button"
-                                    data-slf="PM-1">tune</i>
-
-                            </div>
-
-                        </div>
-
-                    </li>
-                </template>
-
-                <div id="items-cards" class="row"></div>
-                <template id="cards-template">
-
-                    <div class="col s12 m4 l4">
-                        <div class="card hoverable medium grey lighten-4">
-
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img id="item-image" class="activator responsive-img"
-                                    src="https://drive.google.com/uc?export=view&amp;id=1phjvZLB_Kqtvl_Oxek4V7P8cqSvvQX-M">
-                            </div>
-
-                            <div class="card-content">
+                            <div class="col s12 m5">
 
                                 <div class="row">
 
-                                    <div class="col s12">
-                                        <p id="item-name" class="card-title activator grey-text text-darken-4">Ant</p>
+                                    <div id="item-material" class="col s12">Paper Mache</div>
+
+                                    <div class="col s6 italics">Company: <span id="item-company">C.</span>
+
                                     </div>
 
-                                    <div id="item-slf" class="col s6">PM-1</div>
-
-                                    <div class="col s8">
-                                        <span id="item-stock" style="color:coral">0</span> items available
-                                    </div>
-
-                                    <div class="col s4">
-                                        <span id="item-retail" class="card-title activator shamrock">$10</span>
-                                    </div>
+                                    <div class="col s6 italics">Style #: <span id="item-style">45</span></div </div>
 
                                 </div>
 
-                            </div>
-
-                            <div class="card-reveal">
-
-                                <span id="item-name2" class="card-title grey-text text-darken-4">Ant<i
-                                        class="material-icons right">close</i></span>
-
-                                <i id="item-creole">(Petit Cocinelle)</i>
-
-                                <hr>
-
                                 <div class="row">
-                                    <div id="item-material" class="col s6">Paper Mache</div>
-                                    <div class="col s6">Company: <span id="item-company">C.</span></div>
-                                    <div class="col s6">Style #: <span id="item-style">45</span></div>
-                                </div>
 
-                                <div class="row">
                                     <div class="col s12">
                                         <span class="italics">Description</span><br>
-                                        <span id="item-description">Small paper Mache ant</span>
+                                        <span id="item-description">Small paper Mache ant</span><br>
                                     </div>
-                                </div>
 
-                                <div class="row">
                                     <div class="col s12">
-                                        <span class="italics">Tags</span><br>
-                                        <span class="chip" id="item-tags">small ant red insect</span>
-                                    </div>
-                                </div>
-
-                                <p><span class="italics">Notes:</span><span id="item-notes">Received by Jerina</span>
-                                </p>
-
-                                <div class="row card-actions">
-
-                                    <i class="col s3 button material-icons center edit-button modal-trigger"
-                                        type="button" data-target="edit-modal" data-slf="PM-1">edit</i>
-                                    <i class="col s3 button material-icons center recieve-button" type="button"
-                                        data-slf="PM-1">add</i>
-                                    <i class="col s3 button material-icons center sale-button" type="button"
-                                        data-slf="PM-1">remove</i>
-                                    <i class="col s3 button material-icons center inventoryCheck-button modal-trigger"
-                                        type="button" data-target="image-modal" data-slf="PM-1">tune</i>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </template>
-
-                <div id="edit-modal" class="modal">
-                    <div class="modal-content row">
-
-                        <div class="col s12">
-                            <h4 class="center"> Edit an Item <i class="material-icons left modal-close">arrow_back</i>
-                            </h4>
-                        </div>
-                        <div class="row">
-                            <!--  form -->
-
-                            <div class="row col s12 m5 push-m7" style="padding-top:10px">
-                                <div class="material-placeholder">
-                                    <img id="edit-image" width="400" height="300" class="materialboxed"
-                                        src="https://images.squarespace-cdn.com/content/v1/54e66b67e4b09706d49aee00/1511553574964-CH3EML92ZTOGDM7HU70Z/ke17ZwdGBToddI8pDm48kPZPAWXt-oN4iqUZ0D9L0UV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmSBbXEDD4VSardKCHRQw8udukTBTWBshYMc2ee8ieTSDdLgz5ICxn5Ztv-dp_N6w6/colorlvhplogoblackbase+-+original.png">
-                                </div>
-                            </div>
-
-                            <div class="col s12 m7 pull-m5">
-                                <div class="row">
-
-                                    <div class="input-field col s6">
-                                        <input readonly="" placeholder="slf" id="edit-slf" type="text" class="validate">
-                                        <label for="slf" class="active">SLF</label>
-                                    </div>
-
-                                    <div class="input-field col s6">
-                                        <input readonly="" placeholder="material" id="edit-material" type="text"
-                                            class="validate">
-                                        <label for="edit-material" class="active">Material</label>
-                                    </div>
-
-                                    <div class="input-field col s6">
-                                        <input placeholder="company" id="edit-company" type="text" class="validate">
-                                        <label for="edit-company" class="active">Company</label>
-                                    </div>
-
-                                    <div class="input-field col s6">
-                                        <input placeholder="company style#" id="edit-style" type="text"
-                                            class="validate">
-                                        <label for="edit-style" class="active">Style Number</label>
-                                    </div>
-
-                                    <div class="input-field col s12">
-                                        <input placeholder="item Name" id="edit-name" type="text" class="validate">
-                                        <label for="edit-name" class="active">Item Name</label>
-                                    </div>
-
-                                    <div class="input-field col s10">
-                                        <input placeholder="Creole Name" id="edit-creole" type="text" class="validate">
-                                        <label for="edit-creole" class="active">Creole Name</label>
-                                    </div>
-
-                                    <div class="input-field col s2">
-                                        <input placeholder="Retail Price" id="edit-retail" type="text" class="validate">
-                                        <label for="edit-retail" class="active">Retail</label>
+                                        <span class="italics">Tags: </span><br>
+                                        <span id="item-tags">small ant red insect</span>
                                     </div>
 
                                 </div>
+
                             </div>
 
                             <div class="col s12">
-                                <div class="row">
+                                <span class="italics">Notes: </span><br>
+                                <span id="item-notes">Received by Jerina</span>
+                            </div>
 
-                                    <div class="input-field col s12 m7">
-                                        <textarea id="edit-description" class="materialize-textarea"
-                                            style="height: 35px;"></textarea>
-                                        <label for="edit-description">Description</label>
-                                    </div>
+                        </div>
 
-                                    <div class="file-field input-field col s12 m4">
-                                        <div class="btn rounded">
-                                            <span>File</span>
-                                            <input type="file">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input id="edit-file" class="file-path validate" type="text">
-                                        </div>
-                                    </div>
+                        <div class="row">
 
-                                    <div id="upload-edit-file" class="btn rounded col s11 m1"><span>Upload</span> </div>
+                            <i class="col s3 button material-icons center edit-button modal-trigger" type="button"
+                                data-target="edit-modal" data-slf="PM-1">edit</i>
 
-                                    <div class="input-field col s12 m7">
-                                        <textarea id="edit-notes" class="materialize-textarea"
-                                            style="height: 46px;"></textarea>
-                                        <label for="edit-notes">Notes</label>
-                                    </div>
+                            <i class="col s3 button material-icons center recieve-button modal-trigger" type="button"
+                                data-slf="PM-1">add</i>
 
-                                    <div class="col s12 m5 input-field">
-                                        <div id="edit-tags" class="chips"></div>
-                                    </div>
+                            <i class="col s3 button material-icons center sale-button modal-trigger" type="button"
+                                data-target="sale-modal" data-slf="PM-1">remove</i>
 
-                                    <div class="modal-footer row">
-                                        <div class="col s3">
-                                            <button id="cancel-changes"
-                                                class="btn btn-large rounded coral-bg modal-close waves-effect waves-light"
-                                                type="submit" name="action">
-                                                <i class="material-icons small">cancel</i>
-                                            </button>
-                                        </div>
-                                        <div class="col s9">
-                                            <button id="save-changes"
-                                                class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light"
-                                                type="" name="action">Submit
-                                                <i class="material-icons right">check</i>
-                                            </button>
-                                        </div>
-                                    </div>
+                            <i class="col s3 button material-icons center inventoryCheck-button modal-trigger" type="button"
+                                data-slf="PM-1">tune</i>
 
+                        </div>
+
+                    </div>
+
+                </li>
+            </template>
+
+            <div id="items-cards" class="row"></div>
+            <template id="cards-template">
+
+                <div class="col s12 m4 l4">
+                    <div class="card hoverable medium grey lighten-4">
+
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img id="item-image" class="activator responsive-img"
+                                src="https://drive.google.com/uc?export=view&amp;id=1phjvZLB_Kqtvl_Oxek4V7P8cqSvvQX-M">
+                        </div>
+
+                        <div class="card-content">
+
+                            <div class="row">
+
+                                <div class="col s12">
+                                    <p id="item-name" class="card-title activator grey-text text-darken-4">Ant</p>
+                                </div>
+
+                                <div id="item-slf" class="col s6">PM-1</div>
+
+                                <div class="col s8">
+                                    <span id="item-stock" style="color:coral">0</span> items available
+                                </div>
+
+                                <div class="col s4">
+                                    <span id="item-retail" class="card-title activator shamrock">$10</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="card-reveal">
+
+                            <span id="item-name2" class="card-title grey-text text-darken-4">Ant<i
+                                    class="material-icons right">close</i></span>
+
+                            <i id="item-creole">(Petit Cocinelle)</i>
+
+                            <hr>
+
+                            <div class="row">
+                                <div id="item-material" class="col s6">Paper Mache</div>
+                                <div class="col s6">Company: <span id="item-company">C.</span></div>
+                                <div class="col s6">Style #: <span id="item-style">45</span></div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="italics">Description</span><br>
+                                    <span id="item-description">Small paper Mache ant</span>
                                 </div>
                             </div>
 
-                        </div><!--  form -->
+                            <div class="row">
+                                <div class="col s12">
+                                    <span class="italics">Tags</span><br>
+                                    <span class="chip" id="item-tags">small ant red insect</span>
+                                </div>
+                            </div>
+
+                            <p><span class="italics">Notes:</span><span id="item-notes">Received by Jerina</span>
+                            </p>
+
+                            <div class="row card-actions">
+
+                                <i class="col s3 button material-icons center edit-button modal-trigger" type="button"
+                                    data-target="edit-modal" data-slf="PM-1">edit</i>
+                                <i class="col s3 button material-icons center recieve-button modal-trigger" type="button"
+                                    data-target="sale-modal" data-slf="PM-1">add</i>
+                                <i class="col s3 button material-icons center sale-button modal-trigger" type="button"
+                                    data-slf="PM-1">remove</i>
+                                <i class="col s3 button material-icons center inventoryCheck-button modal-trigger"
+                                    type="button" data-target="image-modal" data-slf="PM-1">tune</i>
+
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
+            </template>
 
-            </section>
+            <!-- edit modal -->
+            <div id="edit-modal" class="modal">
+                <div class="modal-content row">
 
-            <!-- ADD PAGE -->
-            <section id="addTab">
-                <div class="container">
+                    <div class="col s12">
+                        <h4 class="center"> Edit an Item <i class="material-icons left modal-close">arrow_back</i>
+                        </h4>
+                    </div>
                     <div class="row">
-                        <div class="col s12">
-                            <h2>ADD NEW</h2>
+                        <!--  form -->
+
+                        <div class="row col s12 m5 push-m7" style="padding-top:10px">
+                            <div class="material-placeholder">
+                                <img id="edit-image" width="400" height="300" class="materialboxed"
+                                    src="https://images.squarespace-cdn.com/content/v1/54e66b67e4b09706d49aee00/1511553574964-CH3EML92ZTOGDM7HU70Z/ke17ZwdGBToddI8pDm48kPZPAWXt-oN4iqUZ0D9L0UV7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QHyNOqBUUEtDDsRWrJLTmSBbXEDD4VSardKCHRQw8udukTBTWBshYMc2ee8ieTSDdLgz5ICxn5Ztv-dp_N6w6/colorlvhplogoblackbase+-+original.png">
+                            </div>
                         </div>
-                        <div class="col s12">
-                            <!-- <form > -->
+
+                        <div class="col s12 m7 pull-m5">
                             <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <input placeholder="Placeholder" id="new-name" type="text" class="validate">
-                                    <label for="new-name">Item Name</label>
+
+                                <div class="input-field col s6">
+                                    <input readonly="" placeholder="slf" id="edit-slf" type="text" class="validate">
+                                    <label for="slf" class="active">SLF</label>
                                 </div>
-                                <div class="input-field col s12 m6">
-                                    <input placeholder="Placeholder" id="new-creole" type="text" class="validate">
-                                    <label for="new-creole">Creole Name</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12 m3 l3">
-                                    <input placeholder="company name..." id="new-company" type="text" class="validate">
-                                    <label for="new-company">Company</label>
-                                </div>
-                                <div class="input-field col s6 m3 l3">
-                                    <input placeholder="company style number..." id="new-style" type="text"
+
+                                <div class="input-field col s6">
+                                    <input readonly="" placeholder="material" id="edit-material" type="text"
                                         class="validate">
-                                    <label for="new-style">Style Number</label>
+                                    <label for="edit-material" class="active">Material</label>
                                 </div>
-                                <div class="input-field col s6 m3 l3">
-                                    <select id="new-material">
-                                        <option value="" disabled selected></option>
-                                        <option value="1">Paper Mache</option>
-                                        <option value="2">Wood</option>
-                                        <option value="3">Horn</option>
-                                        <option value="4">Metal painted</option>
-                                        <option value="5">Metal Unpainted</option>
-                                    </select>
-                                    <label>Material</label>
+
+                                <div class="input-field col s6">
+                                    <input placeholder="company" id="edit-company" type="text" class="validate">
+                                    <label for="edit-company" class="active">Company</label>
                                 </div>
-                                <div class="input-field col s6 m3 l3">
-                                    <input placeholder="retail price" id="new-retail" type="text" class="validate">
-                                    <label for="new-style">Retail Price</label>
+
+                                <div class="input-field col s6">
+                                    <input placeholder="company style#" id="edit-style" type="text" class="validate">
+                                    <label for="edit-style" class="active">Style Number</label>
                                 </div>
+
+                                <div class="input-field col s12">
+                                    <input placeholder="item Name" id="edit-name" type="text" class="validate">
+                                    <label for="edit-name" class="active">Item Name</label>
+                                </div>
+
+                                <div class="input-field col s10">
+                                    <input placeholder="Creole Name" id="edit-creole" type="text" class="validate">
+                                    <label for="edit-creole" class="active">Creole Name</label>
+                                </div>
+
+                                <div class="input-field col s2">
+                                    <input placeholder="Retail Price" id="edit-retail" type="text" class="validate">
+                                    <label for="edit-retail" class="active">Retail</label>
+                                </div>
+
                             </div>
+                        </div>
+
+                        <div class="col s12">
                             <div class="row">
-                                <div class="input-field col s12 m6">
-                                    <textarea id="new-description" class="materialize-textarea"></textarea>
-                                    <label for="new-description">Description</label>
+
+                                <div class="input-field col s12 m7">
+                                    <textarea id="edit-description" class="materialize-textarea"
+                                        style="height: 35px;"></textarea>
+                                    <label for="edit-description">Description</label>
                                 </div>
-                                <div class="input-field col s12 m6">
-                                    <textarea id="new-notes" class="materialize-textarea"></textarea>
-                                    <label for="new-notes">Notes</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col s12 m6 input-field">
-                                    <div id="new-tags" class="chips"></div>
-                                </div>
-                                <div class="file-field input-field col s12 offset-m3 m3">
-                                    <div class="btn">
-                                        <span>Image</span>
+
+                                <div class="file-field input-field col s12 m4">
+                                    <div class="btn rounded">
+                                        <span>File</span>
                                         <input type="file">
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload image">
+                                        <input id="edit-file" class="file-path validate" type="text">
                                     </div>
                                 </div>
-                                <button id="add-new" class="btn waves-effect waves-light" type="submit"
-                                    name="action">Submit
-                                    <i class="material-icons right">check</i>
-                                </button>
+
+                                <div id="upload-edit-file" class="btn rounded col s11 m1"><span>Upload</span> </div>
+
+                                <div class="input-field col s12 m7">
+                                    <textarea id="edit-notes" class="materialize-textarea"
+                                        style="height: 46px;"></textarea>
+                                    <label for="edit-notes">Notes</label>
+                                </div>
+
+                                <div class="col s12 m5 input-field">
+                                    <div id="edit-tags" class="chips"></div>
+                                </div>
+
+                                <div class="modal-footer row">
+                                    <div class="col s3">
+                                        <button id="cancel-changes"
+                                            class="btn btn-large rounded coral-bg modal-close waves-effect waves-light"
+                                            type="submit" name="action">
+                                            <i class="material-icons small">cancel</i>
+                                        </button>
+                                    </div>
+                                    <div class="col s9">
+                                        <button id="save-changes"
+                                            class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light"
+                                            type="" name="action">Submit
+                                            <i class="material-icons right">check</i>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div><!-- </form> -->
+                        </div>
+
+                    </div><!--  form -->
+                </div>
+            </div>
+
+            <!-- IMAGE UPLOAD -->
+            <!-- <div id="image-modal" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h3>SLF: <span id="image-slf"> Image SLF</span></h3>
+                    <form action="#">
+                        <div class="file-field input-field">
+                            <div class="btn">
+                                <span>File</span>
+                                <input type="file">
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" type="text">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="submit-image"
+                        class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light"
+                        name="action">Submit Image
+                    </button>
+                </div>
+            </div> -->
+
+            <!-- New Sale Modal -->
+            <div id="sale-modal" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h1>New Sale</h1>
+                    <div class="row">
+                        <div class="col s1">
+                            <img src="" alt="" class="circle">
+                        </div>
+                        <div class="col s3">
+                            <Span id="sale-slf" class=""></Span>
+                            <span id="sale-name" class=""></span>
+                        </div>
+                        <div class="col s2">
+                            <span id="sale-price" class="shamrock"></span>
+                        </div>
+                        <div class="col s2">
+                            <span id="sale-stock" class="coral"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <form action="#">
+                            <div class="col s4">
+                                Quantity sold:
+                                <div class="input-field inline">
+                                    <input id="sale-qty" type="number" class="validate">
+                                    <label for="sale-qty">Quantity</label>
+                                    <span class="helper-text" data-error="wrong" data-success="right">invalid</span>
+                                </div>
+                            </div>
+                            <div class="col s4">
+                                Input by:
+                                <div class="input-field inline">
+                                    <input id="sale-name" type="number" class="validate">
+                                    <label for="sale-name">Your Name</label>
+                                    <span class="helper-text" data-error="wrong" data-success="right">invalid</span>
+                                </div>
+                            </div>
+                            <div class="col s4">
+                                <input type="text" class="datepicker">
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </section>
+                <div class="modal-footer">
+                    <button id="submit-image"
+                        class="btn btn-large rounded shamrock-bg modal-close waves-effect waves-light"
+                        name="action">Submit Image
+                    </button>
+                </div>
+            </div>
 
             <!-- IMAGE UPLOAD -->
             <div id="image-modal" class="modal bottom-sheet">
@@ -453,20 +449,99 @@
                 </div>
             </div>
 
-        </main>
+        </section>
 
-        <footer class="blue-grey darken-1 rounded card">
-            <div class="center white-text">Made with ♥ VHP</div>
-        </footer>
+        <!-- ADD PAGE -->
+        <section id="addTab">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h2>ADD NEW</h2>
+                    </div>
+                    <div class="col s12">
+                        <!-- <form > -->
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <input placeholder="Placeholder" id="new-name" type="text" class="validate">
+                                <label for="new-name">Item Name</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <input placeholder="Placeholder" id="new-creole" type="text" class="validate">
+                                <label for="new-creole">Creole Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m3 l3">
+                                <input placeholder="company name..." id="new-company" type="text" class="validate">
+                                <label for="new-company">Company</label>
+                            </div>
+                            <div class="input-field col s6 m3 l3">
+                                <input placeholder="company style number..." id="new-style" type="text"
+                                    class="validate">
+                                <label for="new-style">Style Number</label>
+                            </div>
+                            <div class="input-field col s6 m3 l3">
+                                <select id="new-material">
+                                    <option value="" disabled selected></option>
+                                    <option value="1">Paper Mache</option>
+                                    <option value="2">Wood</option>
+                                    <option value="3">Horn</option>
+                                    <option value="4">Metal painted</option>
+                                    <option value="5">Metal Unpainted</option>
+                                </select>
+                                <label>Material</label>
+                            </div>
+                            <div class="input-field col s6 m3 l3">
+                                <input placeholder="retail price" id="new-retail" type="text" class="validate">
+                                <label for="new-style">Retail Price</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m6">
+                                <textarea id="new-description" class="materialize-textarea"></textarea>
+                                <label for="new-description">Description</label>
+                            </div>
+                            <div class="input-field col s12 m6">
+                                <textarea id="new-notes" class="materialize-textarea"></textarea>
+                                <label for="new-notes">Notes</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12 m6 input-field">
+                                <div id="new-tags" class="chips"></div>
+                            </div>
+                            <div class="file-field input-field col s12 offset-m3 m3">
+                                <div class="btn">
+                                    <span>Image</span>
+                                    <input type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text" placeholder="Upload image">
+                                </div>
+                            </div>
+                            <button id="add-new" class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                <i class="material-icons right">check</i>
+                            </button>
+                        </div>
+                    </div><!-- </form> -->
+                </div>
+            </div>
+        </section>
 
-        <!-- materialize css js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <!-- jquery  -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <!-- custom js -->
-        <script src="./js/main.js"></script>
-        <!-- materialize auto initialize js ccomponents -->
-        <script>M.AutoInit();</script>
-    </body>
+    </main>
+
+    <footer class="blue-grey darken-1 rounded card">
+        <div class="center white-text">Made with ♥ VHP</div>
+    </footer>
+
+    <!-- materialize css js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- jquery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- custom js -->
+    <script src="./js/main.js"></script>
+    <!-- materialize auto initialize js ccomponents -->
+    <script>M.AutoInit();</script>
+</body>
 
 </html>
